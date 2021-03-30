@@ -8,6 +8,9 @@
 #include <QTimer>
 #include "juego.h"
 
+#define MAX_TECLAS 10
+
+
 namespace Ui {
 class VentanaJuego;
 }
@@ -33,11 +36,17 @@ private:
 
     Juego * juego;
     QPixmap pixmap;
+    Qt::Key teclas[MAX_TECLAS];
+    int tlTeclas;
 
     void keyPressEvent(QKeyEvent *event);
+    //void keyReleaseEvent(QKeyEvent *event);
+    bool eventFilter(QObject *object, QEvent *ev);
     void closeEvent(QCloseEvent *event);
     void init_pixmap();
     void clean_pixmap();
+    bool teclaYaPresionada(Qt::Key teclaBuscada);
+    void eliminarTecla(Qt::Key teclaAEliminar);
 };
 
 #endif // VENTANAJUEGO_H
