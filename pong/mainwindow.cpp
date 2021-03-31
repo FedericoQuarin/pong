@@ -19,6 +19,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_juego_button_clicked()
 {
+    ventana_juego.grabKeyboard();
     ventana_juego.show();
     ventana_juego.start();
     this->setDisabled(true);

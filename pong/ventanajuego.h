@@ -40,8 +40,7 @@ private:
     int tlTeclas;
 
     void keyPressEvent(QKeyEvent *event);
-    //void keyReleaseEvent(QKeyEvent *event);
-    bool eventFilter(QObject *object, QEvent *ev);
+    void keyReleaseEvent(QKeyEvent *event);
     void closeEvent(QCloseEvent *event);
     void init_pixmap();
     void clean_pixmap();

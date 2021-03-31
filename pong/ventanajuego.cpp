@@ -11,7 +11,7 @@ VentanaJuego::VentanaJuego(QWidget *parent) :
     ui->setupUi(this);
 
     connect(&temp, SIGNAL(timeout()), this, SLOT(actualizarPantalla()));
-    temp.start(100);
+    temp.start(50);
 }
 
 VentanaJuego::VentanaJuego(QMainWindow * _mainWindow, QWidget *parent) :
@@ -33,8 +33,6 @@ VentanaJuego::VentanaJuego(QMainWindow * _mainWindow, QWidget *parent) :
 
     //connect(&temp, SIGNAL(timeout()), this, SLOT(actualizarPantalla()));
     //temp.start(100);
-
-    this->installEventFilter(this);
 
 }
 
@@ -87,7 +85,7 @@ void VentanaJuego::actualizarPantalla() {
 //%%%%%%%%%%%%%%%%%%% private functions %%%%%%%%%%%%%%%%%%%
 
 void VentanaJuego::keyPressEvent(QKeyEvent *event) {
-    QWidget::keyPressEvent(event);
+    //QWidget::keyPressEvent(event);
 
     /*if (event->key() == Qt::Key_Up) {
         this->close();
@@ -128,35 +126,8 @@ void VentanaJuego::keyPressEvent(QKeyEvent *event) {
 
 }
 
-bool VentanaJuego::eventFilter(QObject *object, QEvent *ev)
-{
-      if (ev->type() == QEvent::KeyRelease)
-      {
-           QKeyEvent* keyEvent = (QKeyEvent*)ev;
-               switch (keyEvent->key()) {
-               case Qt::Key_W:
-                   this->eliminarTecla(Qt::Key_W);
-                   break;
-               case Qt::Key_S:
-                   this->eliminarTecla(Qt::Key_S);
-                   break;
-               case Qt::Key_I:
-                   this->eliminarTecla(Qt::Key_I);
-                   break;
-               case Qt::Key_K:
-                   this->eliminarTecla(Qt::Key_K);
-                   break;
-               }
-
-
-           ui->pts_p1->setValue(ui->pts_p1->value()+1);
-    }
-
-    return false;
-}
-
-/*void VentanaJuego::keyReleaseEvent(QKeyEvent *event) {
-    QWidget::keyReleaseEvent(event);
+void VentanaJuego::keyReleaseEvent(QKeyEvent *event) {
+    //QWidget::keyReleaseEvent(event);
 
     switch (event->key()) {
     case Qt::Key_W:
@@ -173,9 +144,9 @@ bool VentanaJuego::eventFilter(QObject *object, QEvent *ev)
         break;
     }
 
-    ui->pts_p1->setValue(ui->pts_p1->value()+1);
+    //ui->pts_p1->setValue(ui->pts_p1->value()+1);
 
-}*/
+}
 
 void VentanaJuego::closeEvent(QCloseEvent *event) {
     clean_pixmap();

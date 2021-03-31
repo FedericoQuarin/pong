@@ -10,7 +10,7 @@
 #define DIR_ABAJO 2
 #define ANCHO_VENTANA 800
 #define ALTO_VENTANA 600
-#define DESPLAZAMIENTO 5
+#define DESPLAZAMIENTO 10
 
 
 class Jugador : public QObject
